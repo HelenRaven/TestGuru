@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* List of entities:
 
-Things you may want to cover:
+  - Question
 
-* Ruby version
+  contains:
+    - type of question (abc, multi, one)
+    - text of question
+    - answers (with an indication of the cost)
 
-* System dependencies
+  - Test
 
-* Configuration
+  contains:
+    - type of test (abc, multi, one)
+    - questions list
 
-* Database creation
+  - User
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  contains:
+  - type (admin, user)
