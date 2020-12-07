@@ -3,7 +3,7 @@ class CreateInterpretations < ActiveRecord::Migration[6.0]
     create_table :interpretations do |t|
     	t.string :body, null: false
     	t.string :mark, limit: 1, default: 'a'
-    	t.references :test, foreign_key: true
+    	t.belongs_to :test, foreign_key: true
 
     	t.timestamps
     end
