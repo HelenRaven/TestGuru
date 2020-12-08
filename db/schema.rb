@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_070228) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
-  create_table "results", force: :cascade do |t|
+  create_table "results", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "test_id"
     t.string "result", default: "0"
