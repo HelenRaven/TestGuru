@@ -15,7 +15,7 @@ u_id = User.first.id
 # -------------------------------------------------------------------------------
 
 category = Category.create(title: 'Ruby')
-test = Test.create(title: 'Ruby: 1', level: 1, category_id: category.id)
+test = Test.create(title: 'Ruby: 1', level: 1, category_id: category.id, user_id: u_id)
 
 q = Question.create(body: 'Выберите все варианты использования puts, которые не приведут к ошибке:', check: true, test_id: test.id)
 Answer.create(body: "puts 'Hello'", mark: 1, question_id: q.id)
@@ -37,14 +37,14 @@ Answer.create(body: 'def meth({a: 1}); end', mark: 1, question_id: q.id)
 
 Result.create(test_id: test.id, user_id: u_id)
 
-Test.create(title: 'Ruby: 0', level: 0, category_id: category.id)
-Test.create(title: 'Ruby: 2', level: 2, category_id: category.id)
-Test.create(title: 'Ruby: 3', level: 3, category_id: category.id)
+Test.create(title: 'Ruby: 0', level: 0, category_id: category.id, user_id: u_id)
+Test.create(title: 'Ruby: 2', level: 2, category_id: category.id, user_id: u_id)
+Test.create(title: 'Ruby: 3', level: 3, category_id: category.id, user_id: u_id)
 
 # -----------------------------------------------------------------------------------
 
 category = Category.create(title: 'HTML')
-test = Test.create(title: 'HTML: start', level: 0, category_id: category.id)
+test = Test.create(title: 'HTML: start', level: 0, category_id: category.id, user_id: u_id)
 
 q = Question.create(body: 'Какой тег используется для отображения маркированного списка?', test_id: test.id)
 Answer.create(body: '<list>', mark: 0, question_id: q.id)
@@ -64,13 +64,13 @@ Answer.create(body: 'Для блока всегда нужно задавать 
 
 Result.create(test_id: test.id, user_id: u_id)
 
-Test.create(title: 'HTML: 1', level: 1, category_id: category.id)
-Test.create(title: 'HTML: 2', level: 2, category_id: category.id)
+Test.create(title: 'HTML: 1', level: 1, category_id: category.id, user_id: u_id)
+Test.create(title: 'HTML: 2', level: 2, category_id: category.id, user_id: u_id)
 
 # ----------------------------------------------------------------
 
 category = Category.create(title: 'Just for fun')
-test = Test.create(title: 'Game of Trones', level: 3, abc: true, category_id: category.id)
+test = Test.create(title: 'Game of Trones', level: 3, abc: true, category_id: category.id, user_id: u_id)
 
 q = Question.create(body: 'Грядет великая битва, где вы будете в момент боя?', test_id: test.id)
 Answer.create(body: 'Буду искать своего главного врага, чтобы наконец отомстить!', mark: 4, question_id: q.id)
@@ -109,7 +109,7 @@ Interpretation.create(body: 'Арья Старк', mark: 4, test_id: test.id)
 
 Result.create(test_id: test.id, user_id: u_id)
 
-test = Test.create(title: 'Material welth.', level: 0, abc: true, category_id: category.id)
+test = Test.create(title: 'Material welth.', level: 0, abc: true, category_id: category.id, user_id: u_id)
 q = Question.create(body: 'Я плачу.', test_id: test.id)
 Answer.create(body: 'Я плачУ', mark: 1, question_id: q.id)
 Answer.create(body: 'Я плАчу', mark: 2, question_id: q.id)
@@ -119,8 +119,8 @@ Interpretation.create(body: 'We are sorry.', mark: 2, test_id: test.id)
 
 Result.create(test_id: test.id, user_id: u_id)
 
-Test.create(title: 'Just for fun: 1', level: 1, abc: true, category_id: category.id)
-Test.create(title: 'Just for fun: 2', level: 2, abc: true, category_id: category.id)
+Test.create(title: 'Just for fun: 1', level: 1, abc: true, category_id: category.id, user_id: u_id)
+Test.create(title: 'Just for fun: 2', level: 2, abc: true, category_id: category.id, user_id: u_id)
 
 #--------------------------------------------------------------------------------------------
 
