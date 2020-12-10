@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+
   has_many :results
   has_many :tests, through: :results
+  has_many :created_tests, class_name: "Test"
 
   def passed_tests_with_level(level)
     Test.joins(:results)
