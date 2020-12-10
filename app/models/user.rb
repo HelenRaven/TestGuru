@@ -4,9 +4,14 @@ class User < ApplicationRecord
   has_many :tests, through: :results
   has_many :created_tests, class_name: "Test"
 
+  validates :password, :email, :email_confirmation, presence: true
+  validates :email, confirmation: {case_sensitive: false}
+  validates :password. length: {in: 6..25}
+
+  scope :passed_tests_with_level, -> (user, level) { user.tests.where(level: level)}
+
   def passed_tests_with_level(level)
-    Test.joins(:results)
-        .where("user_id = :id AND tests.level = :level", id: self.id, level: level)
-        .select(:title)
+    tests.where(level: level)
   end
+
 end
