@@ -2,9 +2,8 @@ class Test < ApplicationRecord
 
   belongs_to :category
   belongs_to :author, class_name: "User", foreign_key: :user_id
-  has_many :questions
-  has_many :interpretations
-  has_many :results
+  has_many :questions, dependent: :delete_all
+  has_many :results, dependent: :delete_all
   has_many :users, through: :results
 
   validates :title, presence: true
@@ -16,16 +15,13 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
   scope :with_category, -> (category) { joins(:category)
-                                        .where("categories.title = ?", category)
-                                        .order(title: :desc)
-                                        .pluck(:title)}
+                                        .where("categories.title = ?", category)}
 
   scope :with_level, -> (level) { where(level: level)}
 
-  #def self.with_category(category)
-  #  self.joins(:category)
-  #      .where("categories.title = ?", category)
-  #      .order(title: :desc)
-  #      .pluck(:title)
-  #end
+  def self.with_category_desc(category)
+         with_category(category)
+        .order(title: :desc)
+        .pluck(:title)
+  end
 end
