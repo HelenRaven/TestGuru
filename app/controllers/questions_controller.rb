@@ -27,7 +27,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
     render plain: @question.body
   end
 
