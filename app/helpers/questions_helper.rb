@@ -4,7 +4,7 @@ module QuestionsHelper
     question.answers.count
   end
 
-  def question_header(question, text)
-    result = "#{text} '#{Test.find(question.test_id).title}' Question"
+  def question_header(question, test)
+    result = "#{params[:action].capitalize} '#{test.title}' Question"
   end
 end
