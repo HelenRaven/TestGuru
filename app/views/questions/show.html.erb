@@ -1,0 +1,9 @@
+<p>
+  <h1><%= question_header(@question, "Test ")%></h1>
+  <strong>Body:</strong>
+  <%= @question.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %>
+<%= link_to 'Back to Test', test_questions_path(@question.test_id) %>

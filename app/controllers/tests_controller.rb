@@ -11,7 +11,8 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find(params[:id])
+    #@test = Test.find(params[:id])
+    redirect_to test_questions_path(params[:id])
   end
 
   def create
