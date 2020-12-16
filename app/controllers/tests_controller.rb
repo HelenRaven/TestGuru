@@ -1,31 +1,47 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[show destroy]
-
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    result = "Params: #{params.inspect}\n\n"
-    tests = Test.all
-    tests.each do |test|
-      result += "id: #{test.id}, title: #{test.title}\n"
-    end
-    render plain: result
+    @tests = Test.all
   end
 
   def new
-
-  end
-
-  def create
-    render plain: params.inspect
+    @test = Test.new
   end
 
   def show
-    render inline: '<%= @test.title%>'
+    @test = Test.find(params[:id])
+  end
+
+  def create
+    @test = Test.new(test_params)
+
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+
+  end
+
+  def edit
+    @test = Test.find(params[:id])
+  end
+
+  def update
+    @test = Test.find(params[:id])
+
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @test = Test.find(params[:id])
+
     @test.destroy
     redirect_to tests_path
   end
@@ -33,11 +49,7 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level)
-  end
-
-  def find_test
-    @test = Test.find(params[:id])
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def rescue_with_test_not_found
