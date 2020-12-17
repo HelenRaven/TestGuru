@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root to: "tests#index"
 
-  resources :tests do
-    resources :questions, shallow: true
+  resources :tests, shallow: true do
+    resources :questions
   end
 
 end
