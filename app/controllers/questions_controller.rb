@@ -13,9 +13,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new
   end
 
-  def show
-    @test = Test.find(@question.test_id)
-  end
+  def show; end
 
   def create
     @question = @test.questions.new(question_params)
@@ -27,9 +25,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @question.update(question_params)
