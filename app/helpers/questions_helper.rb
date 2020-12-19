@@ -5,6 +5,6 @@ module QuestionsHelper
   end
 
   def question_header(question)
-    result = "#{params[:action].capitalize} '#{question.test.title}' Question"
+    "#{params[:action].capitalize} Question"
   end
 end

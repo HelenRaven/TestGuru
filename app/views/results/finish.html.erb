@@ -1,0 +1,7 @@
+<h1><%= @result.test.title %> was completed!</h1>
+
+<% if @result.test_passed?%>
+  <h2 style="color: green">You`re passed!!!</h2>
+<% else %>
+  <h2 style="color: red">You`re fail :(</h2>
+<% end %>
