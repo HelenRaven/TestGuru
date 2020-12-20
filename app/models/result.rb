@@ -1,4 +1,7 @@
 class Result < ApplicationRecord
+
+  PASS_PERCENT = 85
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: :question_id, optional: true
@@ -22,13 +25,12 @@ class Result < ApplicationRecord
     test.questions.order(:id).where('id <= ?', current_question.id).count
   end
 
+  def result_percentage
+    correct_questions / self.test.questions.count * 100
+  end
+
   def test_passed?
-    percent = correct_questions/self.test.questions.count*100
-    if percent >= 85
-      true
-    else
-      false
-    end
+    result_percentage >= PASS_PERCENT
   end
 
   private

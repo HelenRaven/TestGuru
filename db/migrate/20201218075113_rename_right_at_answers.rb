@@ -1,5 +1,6 @@
 class RenameRightAtAnswers < ActiveRecord::Migration[6.0]
-  def up
+
+  def change
     rename_column :answers, :right, :correct
   end
 
