@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   has_many :results
   has_many :tests, through: :results
-  has_many :created_tests, class_name: "Test"
+  has_many :created_tests, class_name: "Test", foreign_key: :user_id
 
   validates :password, :email, presence: true
   validates :password, length: {in: 6..25}
@@ -11,4 +11,7 @@ class User < ApplicationRecord
     tests.where(level: level)
   end
 
+  def result(test)
+    results.order(id: :desc).find_by(test_id: test.id)
+  end
 end

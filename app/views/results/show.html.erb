@@ -1,0 +1,17 @@
+<h1>Passing the <%= @result.test.title %> Test</h1>
+
+<p>Question #<%= @result.question_number%> from <%= @result.test.questions.count %></p>
+
+
+<b><%= @result.current_question.body %></b>
+
+
+<%= form_with url: result_path(@result), method: :put, local: true do |form| %>
+    <%= form.collection_check_boxes :answer_ids, @result.current_question.answers, :id, :body, include_hidden: false do |b| %>
+      <p>
+        <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+         <%= b.label %>
+      </p>
+    <%end%>
+  <p><%= form.submit 'Next' %></p>
+<%end%>
