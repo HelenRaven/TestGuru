@@ -2,15 +2,18 @@ class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
 
+
   helper_method :current_user,
                 :logged_in?
+
+  before_action :authenticate_user!
 
   private
 
   def authenticate_user!
     unless current_user
       redirect_to login_path, alert: 'Verify your email and password please'
-      cookies[:path] = request.original_fullpath
+      cookies[:user_requested_path] = request.original_fullpath
     end
 
     cookies[:email] = current_user&.email

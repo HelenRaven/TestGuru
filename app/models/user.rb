@@ -6,9 +6,9 @@ class User < ApplicationRecord
   has_many :tests, through: :results
   has_many :created_tests, class_name: "Test", foreign_key: :user_id
 
-  validates :email, confirmation: {case_sensitive: false}
-  validates :email, uniqueness: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP}
+  validates :email, uniqueness: true,
+                    confirmation: {case_sensitive: false},
+                    format: { with: URI::MailTo::EMAIL_REGEXP}
 
   has_secure_password
 
