@@ -1,7 +1,0 @@
-<tr>
-  <td align=left><%= question.body %></td>
-  <td align=center><%= number_of_answers(question) %></td>
-  <td><%= link_to 'show', question_path(question) %></td>
-  <td><%= link_to 'edit', edit_question_path(question) %></td>
-  <td><%= link_to 'delete', question_path(question) , method: :delete, data: { confirm: 'Are you sure?'}%></td>
-</tr>

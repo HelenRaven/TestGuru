@@ -1,0 +1,15 @@
+<p>
+  <h1><%= answer_header(@answer) %></h1>
+  <h2><%= @answer.question.body%></h2>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer.body %><br>
+  <strong>Correct:</strong>
+  <%= @answer.correct %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
+<%= link_to 'Back', admin_question_path(@answer.question) %>
