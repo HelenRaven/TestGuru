@@ -1,6 +1,12 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable
 
   has_many :results
   has_many :tests, through: :results
@@ -10,7 +16,6 @@ class User < ApplicationRecord
                     confirmation: {case_sensitive: false},
                     format: { with: URI::MailTo::EMAIL_REGEXP}
 
-  has_secure_password
 
   def passed_tests_with_level(level)
     tests.where(level: level)
@@ -20,4 +25,7 @@ class User < ApplicationRecord
     results.order(id: :desc).find_by(test_id: test.id)
   end
 
+  def admin?
+    self.is_a?(Admin)
+  end
 end
