@@ -1,33 +1,114 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+    select:
+      prompt: "Please select"
+
+  shared:
+    errors:
+      header:
+        one:  "%{count} error detected"
+        other:  "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Tricky tests"
+      table:
+        num_of_questions: "num of Questions"
+        actions: "Actions"
+    test:
+      start: "Start"
+
+  results:
+    show:
+      header: "Passing the %{title} Test"
+      next: "Next >>"
+    finish:
+      header: "The %{title} Test was completed!"
+      passed: "You`re passed!!!"
+      missed: "You`re fail :("
+
+  admin:
+
+    tests:
+      create:
+        success:  "Test was successfully created."
+      index:
+        header: "Tricky Tests"
+      show:
+        table:
+          body: "Body"
+          num_of_answers: "num of Answers"
+          actions: "Actions"
+        edit: "Edit"
+        back: "Back"
+        questions: "Questions"
+        new_question: "New Question"
+      new:
+        header: "Create New Test"
+        back: "Back"
+      index:
+        header: "Tricky tests"
+        table:
+          num_of_questions: "num of Questions"
+          actions: "Actions"
+        new_test: "New test"
+      edit:
+        header: "Edit %{title} Test"
+        back: "Back"
+      test:
+        show: "show"
+        edit: "edit"
+        delete: "delete"
+        confirm: "Are you sure?"
+
+    questions:
+      show:
+        header: "Question"
+        answers: "Answers"
+        new_answer: "New Answer"
+        table:
+          body: "Body"
+          correct: "Correct"
+          actions: "Actions"
+        edit: "Edit"
+        back: "Back"
+      new:
+        header: "New Question"
+        back: "Back"
+      edit:
+        header: "Edit Question"
+        back: "Back"
+      question:
+        show: "show"
+        edit: "edit"
+        delete: "delete"
+        confirm: "Are you sure?"
+
+    answers:
+      show:
+        header: "Answer"
+        edit: "Edit"
+        back: "Back"
+      new:
+        header: "New Answer"
+        back: "Back"
+      edit:
+        header: "Edit answer"
+        back: "Back"
+      answer:
+        show: "show"
+        edit: "edit"
+        delete: "delete"
+        confirm: "Are you sure?"
