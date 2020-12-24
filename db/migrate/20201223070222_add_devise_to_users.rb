@@ -32,14 +32,18 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
       # t.datetime :locked_at
 
 
-      # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps null: false
+      # Admin/User
+      t.string :type, null: false, default: 'User'
+      t.string :first_name
+      t.string :last_name
+
     end
 
     remove_columns :users, :password_digest, :name
     change_column_default :users, :email, ''
     change_column_null :users, :email, false
 
+    add_index :users, :type
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
@@ -58,11 +62,15 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
                            :confirmation_token,
                            :confirmed_at,
                            :confirmation_sent_at,
-                           :unconfirmed_email
+                           :unconfirmed_email,
+                           :first_name,
+                           :last_name,
+                           :type
 
     add_column :users, :password_digest, :string
     add_column :users, :name, :string
     remove_index :users, :email
+    remove_index :users, :type
     change_column_default :users, :email, "user@email.com"
     change_column_null :users, :email, true
   end

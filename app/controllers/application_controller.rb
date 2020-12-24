@@ -12,11 +12,8 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "Welcome, #{current_user.first_name} #{current_user.last_name}!"
     end
 
-    if current_user.is_a?(Admin)
-      admin_tests_path
-    else
-      tests_path
-    end
+    current_user.admin? ? admin_tests_path : tests_path
+
   end
 
   def configure_permitted_parameters
