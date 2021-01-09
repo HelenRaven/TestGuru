@@ -1,7 +1,7 @@
-<h1><%= @result.test.title %> was completed!</h1>
+<h1><%= t('.header', title: @result.test.title )%></h1>
 
 <% if @result.test_passed?%>
-  <h2 style="color: green">You`re passed!!!</h2>
+  <h2 style="color: green"><%= t('.passed') %></h2>
 <% else %>
-  <h2 style="color: red">You`re fail :(</h2>
+  <h2 style="color: red"><%= t('.missed') %></h2>
 <% end %>

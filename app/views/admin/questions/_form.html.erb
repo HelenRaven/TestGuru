@@ -3,7 +3,7 @@
   <%= render 'shared/errors', resource: @question %>
 
   <p>
-    <%= form.label :body%><br>
+    <%= form.label Question.human_attribute_name(:body) %><br>
     <%= form.text_area :body, id: :question_body, rows: 7, cols:60 %>
   </p><br>
 
