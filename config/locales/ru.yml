@@ -47,7 +47,7 @@ ru:
       create:
         success: "Тест успешно создан"
       index:
-        header: "Доступные тесты"
+        header: "Тесты"
       show:
         table:
           body: "Текст"
@@ -57,6 +57,7 @@ ru:
         back: "Назад"
         questions: "Вопросы"
         new_question: "Создать новый вопрос"
+        nothing: "Здесь пока ничего нет"
       new:
         header: "Создание нового теста"
         back: "Назад"
@@ -74,10 +75,12 @@ ru:
         edit: "редактировать"
         delete: "удалить"
         confirm: "Вы уверены?"
+      form:
+        back: "Назад"
 
     questions:
       show:
-        header: "Вопросы к тесту"
+        header: "Вопрос к тесту"
         answers: "Ответы"
         new_answer: "Создать новый ответ"
         table:
@@ -86,6 +89,7 @@ ru:
           actions: "Действия"
         edit: "Редактировать"
         back: "Назад"
+        nothing: "Здесь пока ничего нет"
       new:
         header: "Новый вопрос"
         back: "Назад"
@@ -97,10 +101,12 @@ ru:
         edit: "редактировать"
         delete: "удалить"
         confirm: "Вы уверены?"
+      form:
+        back: "Назад"
 
     answers:
       show:
-        header: "Ответы к вопросу"
+        header: "Ответ к вопросу"
         edit: "Редактировать"
         back: "Назад"
       new:
@@ -114,3 +120,5 @@ ru:
         edit: "редактировать"
         delete: "удалить"
         confirm: "Вы уверены?"
+      form:
+        back: "Назад"

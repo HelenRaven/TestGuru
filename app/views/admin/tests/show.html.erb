@@ -1,26 +1,26 @@
-<p>
-  <strong><%= Test.human_attribute_name(:title)%></strong>
-  <%= @test.title %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3"><%= Test.model_name.human%></dt>
+  <dd class="col-sm-9"><%= @test.title %></dd>
 
-<p>
-  <strong><%= Test.human_attribute_name(:level)%></strong>
-  <%= @test.level %>
-</p>
+  <dt class="col-sm-3"><%= Test.human_attribute_name(:level)%></dt>
+  <dd class="col-sm-3"><%= @test.level %></dd>
+</dl>
 
-<h2><%= t('.questions')%></h2>
+<h2 class="h2"><%= t('.questions')%></h2>
 
 <%= link_to t('.new_question'), new_admin_test_question_path(@test) %>
 
-<table >
-  <tr>
-    <th><%= t('.table.body')%></th>
-    <th><%= t('.table.num_of_answers')%></th>
-    <th colspan="3"><%= t('.table.actions')%></th>
-  </tr>
-
-  <%= render @test.questions %>
-
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"><%= t('.table.body')%></th>
+      <th scope="col"><%= t('.table.num_of_answers')%></th>
+      <th scope="col" colspan="3"><%= t('.table.actions')%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @test.questions %>
+  </tbody>
 </table>
 
 <%= link_to t('.edit'), edit_admin_test_path(@test) %> |

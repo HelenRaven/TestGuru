@@ -1,27 +1,26 @@
-<p>
-  <h1><%= t('.header') %></h1>
-  <h2><%= @question.test.title %></h2>
-  <strong><%= Question.human_attribute_name(:body) %></strong>
-  <%= @question.body %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3"><%= t('.header') %></dt>
+  <dd class="col-sm-9"><%= @question.test.title %></dd>
 
-<p>
-  <h2><%= t('.answers')%></h2>
-</p>
+  <dt class="col-sm-3"><%= Question.human_attribute_name(:body) %></dt>
+  <dd class="col-sm-9"><%= @question.body %></dd>
+</dl>
 
-<p>
-  <%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
-</p>
+<h2 class="h2"><%= t('.answers')%></h2>
 
-<table >
-  <tr>
-    <th><%= t('.table.body') %></th>
-    <th><%= t('.table.correct') %></th>
-    <th colspan="3"><%= t('.table.actions') %></th>
-  </tr>
+<%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
 
-  <%= render @question.answers %>
-
+<table class="table text-center">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"><%= t('.table.body') %></th>
+      <th scope="col"><%= t('.table.correct') %></th>
+      <th scope="col" colspan="3"><%= t('.table.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @question.answers %>
+  </tbody>
 </table>
 
 <%= link_to t('.edit'), edit_admin_question_path(@question) %> |

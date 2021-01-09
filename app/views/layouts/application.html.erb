@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <mets charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>TestGuru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,17 +14,11 @@
   </head>
 
   <body>
-
-
-    <%= render 'shared/navigation' %>
-    <%= render 'shared/flash' %>
-
-    <main>
-      <%= yield %>
-    </main>
-
-    <%= render 'shared/footer' %>
+      <%= render 'shared/nav' %>
+      <%= render 'shared/flash' %>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
   </body>
-
-
 </html>

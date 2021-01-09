@@ -16,11 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-
-    if current_user.sign_in_count == 0
-      flash[:notice] = "Welcome, #{current_user.first_name} #{current_user.last_name}!"
-    end
-
     current_user.admin? ? admin_tests_path : tests_path
 
   end
