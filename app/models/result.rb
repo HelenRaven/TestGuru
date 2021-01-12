@@ -10,6 +10,8 @@ class Result < ApplicationRecord
   before_update :before_update_set_next_question
 
   def accept!(answer_ids)
+    answer_ids = [answer_ids] unless answer_ids.is_a?(Array)
+
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end

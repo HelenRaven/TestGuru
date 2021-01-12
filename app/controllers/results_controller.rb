@@ -7,14 +7,10 @@ class ResultsController < ApplicationController
   def finish; end
 
   def update
-    unless @result.empty_answer?(params[:answer_ids])
-      if params[:answer_ids].is_a?(Array)
-        @result.accept!(params[:answer_ids])
-      else
-        @result.accept!([params[:answer_ids]])
-      end
-    else
+    if @result.empty_answer?(params[:answer_ids])
       flash[:notice] = "You must chose at least one answer!"
+    else
+      @result.accept!(params[:answer_ids])
     end
 
     if @result.completed?
