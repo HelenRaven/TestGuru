@@ -1,14 +1,12 @@
-<p>
-  <h1><%= t('.header')  %></h1>
-  <h2><%= @answer.question.body%></h2>
-</p>
+<dl class="row">
+  <dt class="col-sm-3"><%= t('.header')  %></dt>
+  <dd class="col-sm-9"><%= @answer.question.body%></dd>
 
-<p>
-  <strong><%= Answer.model_name.human %></strong>
-  <%= @answer.body %><br>
-  <strong><%= Answer.human_attribute_name(:correct) %>:</strong>
-  <%= @answer.correct %>
-</p>
+  <dt class="col-sm-3"><%= Answer.model_name.human %></dt>
+  <dd class="col-sm-9"><%= @answer.body %></dd>
+  <dt class="col-sm-3"><%= Answer.human_attribute_name(:correct) %></dt>
+  <dd class="col-sm-9"><%= @answer.correct %></dd>
+</dl>
 
 
 <%= link_to t('.edit'), edit_admin_answer_path(@answer) %> |

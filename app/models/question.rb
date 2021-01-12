@@ -7,6 +7,8 @@ class Question < ApplicationRecord
 
   validates :body, presence: true
 
+  scope :not_empty, -> () { joins(:answers) }
+
   def max_number_of_answers
     MAX_NUMBER_OF_ANSWERS
   end

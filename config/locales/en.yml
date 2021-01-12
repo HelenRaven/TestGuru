@@ -55,6 +55,7 @@ en:
         back: "Back"
         questions: "Questions"
         new_question: "New Question"
+        nothing: "Nothing"
       new:
         header: "Create New Test"
         back: "Back"
@@ -84,6 +85,7 @@ en:
           actions: "Actions"
         edit: "Edit"
         back: "Back"
+        nothing: "Nothing"
       new:
         header: "New Question"
         back: "Back"

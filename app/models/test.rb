@@ -19,9 +19,16 @@ class Test < ApplicationRecord
 
   scope :with_level, -> (level) { where(level: level)}
 
+  scope :not_empty, -> () { joins(:questions) }
+
   def self.with_category_desc(category)
          with_category(category)
         .order(title: :desc)
         .pluck(:title)
   end
+
+  def self.not_empty_tests
+    not_empty.distinct
+  end
+
 end

@@ -1,17 +1,30 @@
-<h1><%= t('.header', title: @result.test.title) %></h1>
+<h2 class="h2"><%= t('.header', title: @result.test.title) %></h2>
 
-<p><%= Question.model_name.human %> <%= @result.question_number %> / <%= @result.test.questions.count %></p>
-
-
-<b><%= @result.current_question.body %></b>
-
+<div>
+  <p><%= Question.model_name.human %> <%= @result.question_number %> / <%= @result.test.questions.count %></p>
+  <p><b><%= @result.current_question.body %></b></p>
+</div>
 
 <%= form_with url: result_path(@result), method: :put, local: true do |form| %>
-    <%= form.collection_check_boxes :answer_ids, @result.current_question.answers, :id, :body, include_hidden: false do |b| %>
-      <p>
-        <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-         <%= b.label %>
-      </p>
-    <%end%>
+  <% if @result.current_question.check %>
+    <p>
+      <%= form.collection_check_boxes :answer_ids, @result.current_question.answers, :id, :body, include_hidden: false do |b| %>
+        <p>
+          <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+          <%= b.label%>
+        </p>
+      <%end%>
+    </p>
+  <% else %>
+    <p>
+      <%= form.collection_radio_buttons :answer_ids, @result.current_question.answers, :id, :body, include_hidden: false do |b| %>
+        <p>
+          <%= b.radio_button id: "answer_ids_#{b.object.id}" %>
+          <%= b.label %>
+        </p>
+      <%end%>
+    </p>
+  <% end %>
+
   <p><%= form.submit t('.next') %></p>
 <%end%>

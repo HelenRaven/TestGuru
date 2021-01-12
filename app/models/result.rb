@@ -33,6 +33,10 @@ class Result < ApplicationRecord
     result_percentage >= PASS_PERCENT
   end
 
+  def empty_answer?(answer_ids)
+    answer_ids.nil?
+  end
+
   private
 
   def before_validation_set_first_question
@@ -50,4 +54,5 @@ class Result < ApplicationRecord
   def before_update_set_next_question
     self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
+
 end

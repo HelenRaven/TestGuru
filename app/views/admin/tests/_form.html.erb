@@ -1,22 +1,30 @@
-<%= form_with model: [:admin, @test], local: true do |form|%>
+<div class="row justify-content-left mt-3">
+  <div class="col col-md-4">
+    <%= form_with model: [:admin, @test], local: true do |form|%>
 
-  <%= render 'shared/errors', resource: @test %>
+      <%= render 'shared/errors', resource: @test %>
 
-  <p>
-    <%= form.label Test.human_attribute_name(:title)%><br>
-    <%= form.text_field :title, id: :test_title %>
-  </p><br>
+      <div class="form group">
+        <p>
+          <%= form.label Test.human_attribute_name(:title)%>
+          <%= form.text_field :title, id: :test_title,  class: 'form-control' %>
+        </p>
 
-  <p>
-    <%= form.label Test.human_attribute_name(:level)%><br>
-    <%= form.number_field :level, id: :test_level %>
-  </p><br>
+        <p>
+          <%= form.label Test.human_attribute_name(:level)%>
+          <%= form.number_field :level, id: :test_level,  class: 'form-control' %>
+        </p>
 
-  <p>
-    <%= form.label Test.human_attribute_name(:category_id) %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+        <p>
+          <%= form.label Test.human_attribute_name(:category_id) %>
+          <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true,  class: 'form-control' %>
+        </p>
 
-  </p>
-
-  <p><%= form.submit %></p>
-<% end %>
+        <p><%= form.submit %></p>
+      </div>
+    <% end %>
+    <div class="mt-1">
+      <%= link_to t('.back'), admin_tests_path %>
+    </div>
+  </div>
+</div>

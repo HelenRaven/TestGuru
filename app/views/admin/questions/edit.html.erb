@@ -1,8 +1,4 @@
-<p>
-  <h1><%= t('.header')  %></h1>
-  <h2><%= @question.test.title %></h2>
-</p>
+<h2 class="h2"><%= t('.header')  %></h2>
+<h3 class="h3"><%= @question.test.title %></h3>
 
 <%= render 'form' %>
-
-<%= link_to t('.back'), admin_test_path(@question.test) %>

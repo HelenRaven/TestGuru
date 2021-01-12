@@ -1,11 +1,20 @@
-<%= form_with model: [:admin, @test, @question], local: true do |form|%>
+<div class="row justify-content-left mt-3">
+  <div class="col col-md-4">
+    <%= form_with model: [:admin, @test, @question], local: true do |form|%>
 
-  <%= render 'shared/errors', resource: @question %>
+      <%= render 'shared/errors', resource: @question %>
 
-  <p>
-    <%= form.label Question.human_attribute_name(:body) %><br>
-    <%= form.text_area :body, id: :question_body, rows: 7, cols:60 %>
-  </p><br>
+      <div class="form group">
+        <p>
+          <%= form.label Question.human_attribute_name(:body) %>
+          <%= form.text_area :body, id: :question_body, rows: 7, cols:60, class: 'form-control' %>
+        </p>
 
-  <p><%= form.submit %></p>
-<% end %>
+        <p><%= form.submit %></p>
+      </div>
+    <% end %>
+    <div class="mt-1">
+      <%= link_to t('.back'), admin_test_path(@question.test) %>
+    </div>
+  </div>
+</div>

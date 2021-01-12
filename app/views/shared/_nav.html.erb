@@ -1,0 +1,21 @@
+<nav class="navbar sticky-top navbar-light" style="background-color: #f0f0f0">
+  <div>
+    <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+    <% if user_signed_in?&&current_user.admin? %>
+      <%= link_to 'AdminPanel', admin_tests_path, class: 'navbar-text' %>
+    <% end %>
+  </div>
+  <span class="navbar text">
+    <% if user_signed_in? %>
+      <div>
+        Welcome,  <b><%= current_user.email %> </b>  Guru |
+        <%= link_to 'Logout', destroy_user_session_path , method: :delete %>
+      </div>
+    <% else%>
+      <div>
+        <%= link_to 'Register', new_registration_path(resource_name) %> |
+        <%= link_to 'Log in',  new_session_path(resource_name) %>
+      </div>
+    <% end %>
+  </span>
+</nav>
