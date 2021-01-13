@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
@@ -30,6 +32,11 @@ gem 'devise', '~> 4.0'
 #LOCALIZE
 
 gem 'rails-i18n', '~> 6.0'
+
+#NETWORKING
+
+gem 'faraday'
+gem 'octokit', '~> 4.0'
 
 #UI
 gem 'jquery-rails'

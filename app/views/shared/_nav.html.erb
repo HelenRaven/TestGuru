@@ -2,7 +2,8 @@
   <div>
     <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
     <% if user_signed_in?&&current_user.admin? %>
-      <%= link_to 'AdminPanel', admin_tests_path, class: 'navbar-text' %>
+      <%= link_to 'AdminPanel', admin_tests_path, class: 'navbar-text' %> |
+      <%= link_to 'UserGists', admin_gists_path, class: 'navbar-text' %>
     <% end %>
   </div>
   <span class="navbar text">

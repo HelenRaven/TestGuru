@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
 
-  before_action :set_result, only: %i[show update finish]
+  before_action :set_result, only: %i[show update finish gist]
 
   def show; end
 
@@ -8,7 +8,7 @@ class ResultsController < ApplicationController
 
   def update
     if @result.empty_answer?(params[:answer_ids])
-      flash[:notice] = "You must chose at least one answer!"
+      flash.now[:notice] = t('.empty_answer')
     else
       @result.accept!(params[:answer_ids])
     end
@@ -19,6 +19,22 @@ class ResultsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@result.current_question).call
+
+    if result.nil?
+      flash_options = { alert: t('.failure')}
+    else
+      flash_options = { notice: "#{view_context.link_to( t('.success'), result.html_url)}" }
+      current_user.questions.push(@result.current_question)
+      current_gist = current_user.gist(@result.current_question)
+      current_gist.url = result.url
+      current_gist.save
+    end
+
+    redirect_to @result, flash_options
   end
 
   private

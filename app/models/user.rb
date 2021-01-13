@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :results
   has_many :tests, through: :results
+  has_many :gists
+  has_many :questions, through: :gists
   has_many :created_tests, class_name: "Test", foreign_key: :user_id
 
   validates :email, uniqueness: true,
@@ -23,6 +25,10 @@ class User < ApplicationRecord
 
   def result(test)
     results.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def gist(question)
+    gists.order(id: :desc).find_by(question_id: question.id)
   end
 
   def admin?
