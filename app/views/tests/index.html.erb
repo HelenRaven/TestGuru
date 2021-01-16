@@ -3,7 +3,10 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th scope="col"><%= Test.human_attribute_name(:title) %></th>
+      <th class="sort-by-title pointer"><%= Test.human_attribute_name(:title) %>
+          <%= octicon "arrow-up", class: "text-success hide"%>
+          <%= octicon "arrow-down", class: "text-success hide"%>
+        </th>
       <th scope="col"><%= Test.human_attribute_name(:level)%></th>
       <th scope="col"><%= t('.table.num_of_questions')%></th>
       <th scope="col"><%= t('.table.actions')%></th>
