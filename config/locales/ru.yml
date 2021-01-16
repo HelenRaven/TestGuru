@@ -1,4 +1,6 @@
 ru:
+  description: "Вопрос по теме: %{title} из приложения TestGuru"
+  max_answers: "Вопрос уже содержит максимальное число ответов"
 
   helpers:
     submit:
@@ -40,6 +42,11 @@ ru:
       header: "Тест %{title} завершен"
       passed: "Поздравляем! Вы прошли тест."
       missed: "Вы не прошли тест :("
+    gist:
+      success: "Gist успешно сохранен."
+      failure: "Во время создания gist произошла ошибка!"
+    update:
+      empty_answer: "Нужно выбрать хотя бы один ответ!"
 
   admin:
 
@@ -122,3 +129,9 @@ ru:
         confirm: "Вы уверены?"
       form:
         back: "Назад"
+
+    gists:
+      index:
+        table:
+          question: "Вопрос"
+          user: "Пользователь"

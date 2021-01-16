@@ -1,5 +1,8 @@
 en:
 
+  description: "A question about %{title} from TestGuru"
+  max_answers: "Question has maximum answers already!"
+
   helpers:
     submit:
       test:
@@ -38,6 +41,11 @@ en:
       header: "The %{title} Test was completed!"
       passed: "You`re passed!!!"
       missed: "You`re fail :("
+    gist:
+      success: "Gist was succefully created"
+      failure: "An error occured while saving gist"
+    update:
+      empty_answer: "You must chose at least one answer!"
 
   admin:
 
@@ -114,3 +122,9 @@ en:
         edit: "edit"
         delete: "delete"
         confirm: "Are you sure?"
+
+    gists:
+      index:
+        table:
+          question: "Question"
+          user: "User"
