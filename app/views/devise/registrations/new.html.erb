@@ -33,7 +33,9 @@
 
             <p>
               <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation,  class: 'form-control', autocomplete: "new-password" %>
+              <%= octicon "check-circle-fill", class: "text-success hide"%>
+              <%= octicon "x-circle-fill", class: "text-danger hide "%>
+              <%= f.password_field :password_confirmation,  class: 'compare-passwords form-control', autocomplete: "new-password" %>
             </p>
 
             <p>
