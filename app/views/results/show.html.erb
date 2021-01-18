@@ -1,8 +1,14 @@
 <h2 class="h2"><%= t('.header', title: @result.test.title) %></h2>
 
+<div class="progress">
+  <%= content_tag :div,
+                @result.question_number ,
+                class: "bar",
+                data: { percent: @result.passing_percentage } %>
+</div>
+
 <div>
-  <p><%= Question.model_name.human %> <%= @result.question_number %> / <%= @result.test.questions.count %></p>
-  <p><b><%= @result.current_question.body %></b></p>
+  <b><%= @result.current_question.body %></b>
 </div>
 
 <%= form_with url: result_path(@result), method: :put, local: true do |form| %>

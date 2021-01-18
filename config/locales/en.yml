@@ -81,6 +81,8 @@ en:
         edit: "edit"
         delete: "delete"
         confirm: "Are you sure?"
+      form_inline:
+        submit: "Ok"
 
     questions:
       show:

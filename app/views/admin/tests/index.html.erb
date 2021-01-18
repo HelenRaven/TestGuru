@@ -4,21 +4,20 @@
   <%= link_to t('.new_test'), new_admin_test_path %>
 </p>
 
-<% unless @tests.blank? %>
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th class="sort-by-title pointer"><%= Test.human_attribute_name(:title) %>
-          <%= octicon "arrow-up", class: "text-success hide"%>
-          <%= octicon "arrow-down", class: "text-success hide"%>
-        </th>
-        <th scope="col"><%= Test.human_attribute_name(:level)%></th>
-        <th scope="col"><%= t('.table.num_of_questions')%></th>
-        <th scope="col" colspan="3"><%= t('.table.actions')%></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @tests %>
-    </tbody>
-  </table>
-<% end%>
+<%= render 'shared/errors', resource: @test %>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th class="sort-by-title pointer"><%= Test.human_attribute_name(:title) %>
+        <%= octicon "arrow-up", class: "text-success hide"%>
+        <%= octicon "arrow-down", class: "text-success hide"%>
+      </th>
+      <th scope="col"><%= Test.human_attribute_name(:level)%></th>
+      <th scope="col"><%= t('.table.num_of_questions')%></th>
+      <th scope="col" colspan="3"><%= t('.table.actions')%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
+</table>
