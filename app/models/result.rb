@@ -28,7 +28,7 @@ class Result < ApplicationRecord
   end
 
   def result_percentage
-    correct_questions / self.test.questions.count * 100
+    correct_questions.to_f / self.test.questions.count * 100
   end
 
   def passing_percentage
