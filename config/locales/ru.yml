@@ -84,6 +84,8 @@ ru:
         confirm: "Вы уверены?"
       form:
         back: "Назад"
+      form_inline:
+        submit: "Ok"
 
     questions:
       show:

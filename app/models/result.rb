@@ -24,11 +24,15 @@ class Result < ApplicationRecord
   end
 
   def question_number
-    test.questions.order(:id).where('id <= ?', current_question.id).count
+    self.test.questions.order(:id).where('id <= ?', current_question.id).count
   end
 
   def result_percentage
-    correct_questions / self.test.questions.count * 100
+    correct_questions.to_f / self.test.questions.count * 100
+  end
+
+  def passing_percentage
+    (question_number.to_f / self.test.questions.count.to_f * 100).to_i
   end
 
   def test_passed?
