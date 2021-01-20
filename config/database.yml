@@ -36,4 +36,4 @@ test:
 production:
   <<: *default
   database: test-guru-production
-  password: <%= ENV.fetch('PG_PASSWORD') %>
+  password: ENV.['PG_PASSWORD']
