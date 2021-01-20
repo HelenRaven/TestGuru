@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+=begin
 Category.delete_all
 User.delete_all
 Result.delete_all
@@ -92,3 +92,4 @@ Test.create([{title: 'Math: 0', level: 0, category_id: category.id, author: u},
 
 #--------------------------------------------------------------------------------------------
 
+=end
