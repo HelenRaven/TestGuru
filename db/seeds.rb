@@ -13,7 +13,7 @@
 #Result.delete_all
 #Gist.delete_all
 
-user = User.where(type: 'Admin').first
+user = Admin.first
 
 if user
   # -------------------------------------------------------------------------------
