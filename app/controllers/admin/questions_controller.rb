@@ -47,7 +47,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :check)
   end
 
   def rescue_with_question_not_found

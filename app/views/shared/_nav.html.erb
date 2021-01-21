@@ -1,10 +1,14 @@
 <nav class="navbar sticky-top navbar-light" style="background-color: #f0f0f0">
   <div>
     <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+
     <% if user_signed_in?&&current_user.admin? %>
       <%= link_to 'AdminPanel', admin_tests_path, class: 'navbar-text' %> |
       <%= link_to 'UserGists', admin_gists_path, class: 'navbar-text' %>
+    <% else %>
+      <%= link_to 'ContactUs', new_feedback_path, class: 'navbar-text' %>
     <% end %>
+
   </div>
   <span class="navbar text">
     <% if user_signed_in? %>

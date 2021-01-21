@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedbacks, only: %i[new create]
+
   resources :results, only: %i[show update] do
     member do
       get :finish

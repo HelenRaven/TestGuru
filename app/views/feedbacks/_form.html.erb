@@ -1,0 +1,15 @@
+
+<%= form_for :feedback, url: feedbacks_path, locale: true do |form| %>
+  <p>
+    <%= form.label t('.subject') %>
+    <%= form.select :subject, [t('.problem'), t('.suggestion'), t('.question'), t('.other')] ,   class: 'form-control' %>
+  </p>
+
+  <p>
+    <%=form.label t('.message') %>
+    <%= form.text_area :message, rows: 7, cols:60, class: 'form-control' %>
+  </p>
+
+  <p><%= form.submit t('.send')  %></p>
+
+<% end %>
