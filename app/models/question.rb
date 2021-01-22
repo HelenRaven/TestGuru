@@ -3,7 +3,7 @@ class Question < ApplicationRecord
   MAX_NUMBER_OF_ANSWERS = 4
 
   belongs_to :test
-  has_many :answers, dependent: :delete_all
+  has_many :answers, dependent: :destroy
 
   validates :body, presence: true
 

@@ -43,6 +43,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
+    #@test.results.delete_all
     @test.destroy
     redirect_to admin_tests_path
   end
