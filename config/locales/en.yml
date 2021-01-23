@@ -47,6 +47,20 @@ en:
     update:
       empty_answer: "You must chose at least one answer!"
 
+  feedbacks:
+    create:
+      feedback: "Yor message was successfully send"
+    new:
+      header: "Please leave us feedback, it's really appreciated."
+    form:
+      subject: "Subject"
+      problem: "Problem"
+      suggestion: "Suggestion"
+      question: "Question"
+      other: "Other"
+      send: "Send"
+      message: "Message"
+
   admin:
 
     tests:
@@ -107,6 +121,9 @@ en:
         edit: "edit"
         delete: "delete"
         confirm: "Are you sure?"
+      form:
+        back: "Back"
+        multiple_rigth_answers: "multiple rigth answers"
 
     answers:
       show:

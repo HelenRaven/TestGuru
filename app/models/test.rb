@@ -2,8 +2,8 @@ class Test < ApplicationRecord
 
   belongs_to :category, optional: true
   belongs_to :author, class_name: "User", foreign_key: :user_id, optional: true
-  has_many :questions, dependent: :delete_all
-  has_many :results, dependent: :delete_all
+  has_many :questions, dependent: :destroy
+  has_many :results, dependent: :destroy
   has_many :users, through: :results
 
   validates :title, presence: true

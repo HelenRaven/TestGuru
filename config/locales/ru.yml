@@ -48,6 +48,21 @@ ru:
     update:
       empty_answer: "Нужно выбрать хотя бы один ответ!"
 
+  feedbacks:
+    create:
+      feedback: "Ваше сообщение успешно отправлено"
+    new:
+      header: "Здесь вы можете отправить свое сообщение администратору."
+    form:
+      subject: "Тема"
+      problem: "Проблемы"
+      suggestion: "Предложения"
+      question: "Вопрос"
+      other: "Другое"
+      send: "Отправить"
+      message: "Сообщение"
+
+
   admin:
 
     tests:
@@ -112,6 +127,7 @@ ru:
         confirm: "Вы уверены?"
       form:
         back: "Назад"
+        multiple_rigth_answers: "Несколько правильных ответов"
 
     answers:
       show:
