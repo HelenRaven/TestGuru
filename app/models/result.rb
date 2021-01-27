@@ -53,6 +53,15 @@ class Result < ApplicationRecord
     timer_seconds - past_seconds
   end
 
+  def time_off?
+    if self.test.timer
+      seconds_left <= 0
+    else
+      false
+    end
+  end
+
+
   private
 
   def before_validation_set_first_question
