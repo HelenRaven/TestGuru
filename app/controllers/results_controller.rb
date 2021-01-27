@@ -13,7 +13,7 @@ class ResultsController < ApplicationController
       @result.accept!(params[:answer_ids])
     end
 
-    if @result.completed?
+    if @result.completed? || @result.seconds_left <= 0
       TestsMailer.completed_test(@result).deliver_now
       redirect_to finish_result_path(@result)
     else

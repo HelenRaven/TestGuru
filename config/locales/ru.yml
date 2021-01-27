@@ -30,6 +30,7 @@ ru:
       header: "Доступные тесты"
       table:
         num_of_questions: "Кол-во вопросов"
+        timer: "Таймер"
         actions: "Действия"
     test:
       start: "Начать"
@@ -87,6 +88,7 @@ ru:
         header: "Доступные тесты"
         table:
           num_of_questions: "Кол-во вопросов"
+          timer: "Таймер"
           actions: "Действия"
         new_test: "Создать новый тест"
       edit:

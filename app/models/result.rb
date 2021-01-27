@@ -27,6 +27,10 @@ class Result < ApplicationRecord
     self.test.questions.order(:id).where('id <= ?', current_question.id).count
   end
 
+  def progress_bar_string
+    question_number.to_s + ' / ' + self.test.questions.count.to_s
+  end
+
   def result_percentage
     correct_questions.to_f / self.test.questions.count * 100
   end
@@ -41,6 +45,12 @@ class Result < ApplicationRecord
 
   def empty_answer?(answer_ids)
     answer_ids.nil?
+  end
+
+  def seconds_left
+    past_seconds = (Time.now - self.created_at).to_i
+    timer_seconds = self.test.timer * 60
+    timer_seconds - past_seconds
   end
 
   private

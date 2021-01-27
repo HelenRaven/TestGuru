@@ -1,16 +1,27 @@
-<h2 class="h2"><%= t('.header', title: @result.test.title) %></h2>
+<h2 class="h2">
+  <%= t('.header', title: @result.test.title) %>
 
-<div class="progress">
-  <%= content_tag :div,
-                @result.question_number ,
-                class: "bar",
-                data: { percent: @result.passing_percentage } %>
-</div>
+  <% if @result.test.timer %>
+    <%= content_tag :span, "",
+                    class: "timer",
+                    data: { seconds_left: @result.seconds_left } %>
+  <% end %>
+</h2>
 
-<div>
-  <b><%= @result.current_question.body %></b>
-</div>
+<p>
+  <div class="progress">
+    <%= content_tag :div,
+                  @result.progress_bar_string ,
+                  class: "bar",
+                  data: { percent: @result.passing_percentage } %>
+  </div>
+</p>
 
+<h4 class="h4">
+  <%= @result.current_question.body %>
+</h4>
+
+<p>
 <%= form_with url: result_path(@result), method: :put, local: true do |form| %>
   <% if @result.current_question.check %>
     <p>
@@ -35,3 +46,4 @@
   <p><%= link_to 'Gist Question', gist_result_path(@result), method: :post %></p>
   <p><%= form.submit t('.next') %></p>
 <%end%>
+</p>
