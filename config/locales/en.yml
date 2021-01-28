@@ -29,6 +29,7 @@ en:
       header: "Tricky tests"
       table:
         num_of_questions: "num of Questions"
+        timer: "Timer"
         actions: "Actions"
     test:
       start: "Start"
@@ -85,6 +86,7 @@ en:
         header: "Tricky tests"
         table:
           num_of_questions: "num of Questions"
+          timer: "Timer"
           actions: "Actions"
         new_test: "New test"
       edit:

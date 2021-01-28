@@ -9,6 +9,11 @@
 
   <td class="align-center"><%= test_level(test) %></td>
   <td class="align-center"><%= number_of_questions(test) %></td>
+  <td class="align-center">
+    <% if test.timer %>
+      <%= test.timer %>
+    <% end %>
+  </td>
   <td><%= link_to t('.show'), admin_test_path(test) %></td>
   <td>
     <%= link_to t('.edit'),
