@@ -1,0 +1,6 @@
+<tr>
+  <td class="align-center"><%= badge.name %> </td>
+  <td class="align-center"><%= image_tag('/badges/' + badge.image_name, size: "100")%></td>
+  <td class="align-center"><%= badge.get_rule_info(badge.rule, :description) %></td>
+  <td class="align-center"><%= badge.parameter %></td>
+</tr>

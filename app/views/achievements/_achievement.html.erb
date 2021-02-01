@@ -1,0 +1,6 @@
+<tr>
+  <td class="align-center"><%= achievement.name %> </td>
+  <td class="align-center"><%= image_tag('/badges/' + achievement.image_name, size: "100")%></td>
+  <td class="align-center"><%= achievement.get_rule_info(badge.rule, :description) %></td>
+  <td class="align-center"><%= achievement.parameter %></td>
+</tr>

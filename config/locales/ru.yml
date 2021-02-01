@@ -1,6 +1,10 @@
 ru:
   description: "Вопрос по теме: %{title} из приложения TestGuru"
   max_answers: "Вопрос уже содержит максимальное число ответов"
+  all_in_category: "Успешно пройдены все тесты категории"
+  all_at_level: "Успешно пройдены все тесты уровня"
+  for_first_time: "Успешно пройден с первого раза тест"
+  tests_first_time: "Успешно пройдено с первого раза тестов"
 
   helpers:
     submit:
@@ -155,3 +159,20 @@ ru:
         table:
           question: "Вопрос"
           user: "Пользователь"
+
+    badges:
+      new:
+        header: "Новый значок"
+      index:
+        header: "Значки"
+        new_badge: "Создать новый значок"
+        table:
+          actions: "Действия"
+      edit:
+        header: "Редактировать значок '%{name}'"
+      form:
+        back: "Назад"
+      badge:
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"

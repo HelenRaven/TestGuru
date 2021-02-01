@@ -1,0 +1,21 @@
+<h1><%= t('.header') %></h1>
+
+<p>
+  <%= link_to t('.new_badge'), new_admin_badge_path %>
+</p>
+
+<%= render 'shared/errors', resource: @badge %>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"><%= Badge.human_attribute_name(:name) %></th>
+      <th scope="col"><%= Badge.human_attribute_name(:image_name)%></th>
+      <th scope="col"><%= Badge.human_attribute_name(:rule)%></th>
+      <th scope="col"><%= Badge.human_attribute_name(:parameter)%></th>
+      <th scope="col" colspan="2"><%= t('.table.actions')%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @badges %>
+  </tbody>
+</table>

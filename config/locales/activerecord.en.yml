@@ -4,6 +4,7 @@ en:
       test: "Test"
       question: "Question"
       answer: "Answer"
+      badge: "Badge"
 
     attributes:
       test:
@@ -16,6 +17,11 @@ en:
       answer:
         body: "Body"
         correct: "Correct"
+      badge:
+        name: "Name"
+        image_name: "Image"
+        rule: "Rule"
+        parameter: "Parameter"
 
     errors:
       messages:

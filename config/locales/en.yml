@@ -2,6 +2,10 @@ en:
 
   description: "A question about %{title} from TestGuru"
   max_answers: "Question has maximum answers already!"
+  all_in_category: "Succefully passed all tests in category"
+  all_at_level: "Succefully passed all tests at level"
+  for_first_time: "Succefully passed test for the first time"
+  tests_first_time: "Succefully passed tests for the first time"
 
   helpers:
     submit:
@@ -149,3 +153,20 @@ en:
         table:
           question: "Question"
           user: "User"
+
+    badges:
+      new:
+        header: "New Badge"
+      index:
+        header: "Badges"
+        new_badge: "New Badge"
+        table:
+          actions: "Actions"
+      edit:
+        header: "Edit Badge '%{name}'"
+      form:
+        back: "Back"
+      badge:
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"

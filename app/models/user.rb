@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :gists, dependent: :destroy
   has_many :questions, through: :gists
   has_many :created_tests, class_name: "Test", foreign_key: :user_id, dependent: :destroy
+  has_and_belongs_to_many :badges, dependent: :destroy
 
   validates :email, uniqueness: true,
                     confirmation: {case_sensitive: false},

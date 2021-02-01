@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_064718) do
+ActiveRecord::Schema.define(version: 2021_02_01_125009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,29 @@ ActiveRecord::Schema.define(version: 2021_01_27_064718) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "correct", default: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "image_name"
+    t.string "rule"
+    t.string "parameter"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "badges_results", id: false, force: :cascade do |t|
+    t.bigint "badge_id"
+    t.bigint "result_id"
+    t.index ["badge_id"], name: "index_badges_results_on_badge_id"
+    t.index ["result_id"], name: "index_badges_results_on_result_id"
+  end
+
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.bigint "badge_id"
+    t.bigint "user_id"
+    t.index ["badge_id"], name: "index_badges_users_on_badge_id"
+    t.index ["user_id"], name: "index_badges_users_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -56,6 +79,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_064718) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "correct_questions", default: 0
     t.integer "question_id"
+    t.boolean "passed", default: false
     t.index ["question_id"], name: "index_results_on_question_id"
     t.index ["test_id"], name: "index_results_on_test_id"
     t.index ["user_id"], name: "index_results_on_user_id"
