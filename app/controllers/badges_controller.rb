@@ -4,5 +4,4 @@ class BadgesController < ApplicationController
     @badges = Badge.all
   end
 
-
 end
