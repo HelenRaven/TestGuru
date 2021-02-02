@@ -49,43 +49,4 @@ class Badge < ApplicationRecord
     Dir.children(IMAGES)
   end
 
-  def self.hand_out_badges(user)
-      Badge.all.each do |badge|
-        public_send(badge.rule.to_sym, user: user, param: badge.parameter, badge: badge)
-    end
-  end
-
-
-  def self.all_in_category(user:, param:, badge:)
-    test_ary = Test.not_empty_tests.with_category(param).pluck(:id).sort
-    check_rule(user, param, badge, test_ary)
-  end
-
-  def self.all_at_level(user:, param:, badge:)
-    test_ary = Test.not_empty_tests.with_level(param).pluck(:id).sort
-    check_rule(user, param, badge, test_ary)
-  end
-
-  def self.for_first_time(user:, param:, badge:)
-    test_id = Test.with_title(param).ids.uniq
-    results = user.results.tests_results(test_id)
-    if results.count == 1 && results.last.passed == true
-      user.badges.push(badge)
-      results.last.badges.push(badge)
-    end
-  end
-
-  def self.check_rule(user, param, badge, test_ary)
-    badged_results_ids = Result.user_results(user).passed.with_badges.pluck(:id)
-    unbadged_results = Result.user_results(user).passed.except_ids(badged_results_ids)
-    result_ary = unbadged_results.pluck(:test_id).uniq.sort
-
-    if result_ary == test_ary
-      user.badges.push(badge)
-      unbadged_results.tests_results(test_ary).each do |result|
-        result.badges.push(badge)
-      end
-    end
-  end
-
 end

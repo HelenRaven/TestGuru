@@ -19,7 +19,6 @@ class User < ApplicationRecord
                     confirmation: {case_sensitive: false},
                     format: { with: URI::MailTo::EMAIL_REGEXP}
 
-
   def passed_tests_with_level(level)
     tests.where(level: level)
   end
@@ -35,4 +34,5 @@ class User < ApplicationRecord
   def admin?
     self.is_a?(Admin)
   end
+
 end

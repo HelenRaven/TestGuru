@@ -4,5 +4,4 @@ class AchievementsController < ApplicationController
     @achievements = current_user.badges
   end
 
-
 end

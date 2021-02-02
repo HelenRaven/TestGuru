@@ -22,8 +22,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   namespace :admin do
     resources :badges, except: %i[show]
     resources :gists, only: %i[index]
