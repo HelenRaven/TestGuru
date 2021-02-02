@@ -8,9 +8,6 @@ class ResultsController < ApplicationController
     if @result.test_passed?
       @result.passed = true
       @result.save
-
-      service = HandlingBadgesService.new(current_user)
-      service.hand_out_badges
     end
   end
 
@@ -23,6 +20,7 @@ class ResultsController < ApplicationController
 
     if @result.completed? || @result.time_off?
       #TestsMailer.completed_test(@result).deliver_now
+      HandlingBadgesService.new(current_user).hand_out_badges if @result.test_passed?
       redirect_to finish_result_path(@result)
     else
       render :show
