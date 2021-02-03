@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   resources :feedbacks, only: %i[new create]
 
+  resources :achievements, only: %i[index]
+  resources :badges, only: %i[index]
+
   resources :results, only: %i[show update] do
     member do
       get :finish
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges, except: %i[show]
     resources :gists, only: %i[index]
     resources :tests, shallow: true do
       patch :update_inline, on: :member

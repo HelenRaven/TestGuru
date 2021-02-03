@@ -1,0 +1,49 @@
+<div class="row justify-content-left mt-3">
+  <div class="col col-md-4">
+    <%= form_with model: [:admin, @badge], local: true do |form|%>
+
+      <%= render 'shared/errors', resource: @badge %>
+
+      <div class="form group">
+        <p>
+          <%= form.label Badge.human_attribute_name(:name)%>
+          <%= form.text_field :name, id: :badge_name,  class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= form.label Badge.human_attribute_name(:image_name) %>
+          <%= form.select :image_name, @badge.image_names,  class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= form.label Badge.human_attribute_name(:rule)%>
+          <%= form.select :rule, @badge.rules_selector, class: 'form-control' %>
+        </p>
+
+        <%if @badge.persisted? %>
+          <p>
+            <%= form.label Badge.human_attribute_name(:parameter) %>
+            <%= form.select :parameter, @badge.get_rule_info(@badge.rule, :selector),  class: 'form-control' %>
+          </p>
+        <% else %>
+          <p>
+            <%= form.label Badge.human_attribute_name(:parameter) %>
+            <%= form.select :parameter, [],  class: 'form-control' %>
+          </p>
+        <% end %>
+
+        <p><%= form.submit%></p>
+      </div>
+
+      <% @badge.rules.each do |rule| %>
+        <%= content_tag :span, "",
+                  class: rule[:name],
+                  data: { select: @badge.get_rule_info(rule[:name], :selector)*"," } %>
+      <% end %>
+    <% end %>
+    <div class="mt-1 badges">
+      <%= link_to t('.back'), admin_badges_path %>
+    </div>
+  </div>
+</div>
+

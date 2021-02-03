@@ -5,9 +5,16 @@ class Result < ApplicationRecord
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: :question_id, optional: true
+  has_and_belongs_to_many :badges, dependent: :destroy
 
   before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_set_next_question
+  before_update :before_update_set_next_question, unless: :completed?
+
+  scope :passed,          ->              { where(passed: true)       }
+  scope :with_badges,     ->              { joins(:badges)            }
+  scope :except_ids,      -> (ids_ary)    { where.not(id: ids_ary)    }
+  scope :tests_results,   -> (tests_ids)  { where(test_id: tests_ids) }
+  scope :test_with_title, -> (test_title) { joins(:test).where("tests.title = ?", test_title)}
 
   def accept!(answer_ids)
     answer_ids = [answer_ids] unless answer_ids.is_a?(Array)
@@ -15,7 +22,6 @@ class Result < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-
     save!
   end
 
@@ -60,7 +66,6 @@ class Result < ApplicationRecord
       false
     end
   end
-
 
   private
 

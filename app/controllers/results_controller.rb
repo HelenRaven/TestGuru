@@ -4,7 +4,13 @@ class ResultsController < ApplicationController
 
   def show; end
 
-  def finish; end
+  def finish
+    if @result.test_passed?
+      @result.passed = true
+      @result.save
+      HandlingBadgesService.new(current_user).hand_out_badges
+    end
+  end
 
   def update
     if @result.empty_answer?(params[:answer_ids])
@@ -13,9 +19,8 @@ class ResultsController < ApplicationController
       @result.accept!(params[:answer_ids])
     end
 
-
     if @result.completed? || @result.time_off?
-      TestsMailer.completed_test(@result).deliver_now
+      #TestsMailer.completed_test(@result).deliver_now
       redirect_to finish_result_path(@result)
     else
       render :show

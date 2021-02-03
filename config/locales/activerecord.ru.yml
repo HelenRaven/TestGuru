@@ -4,6 +4,7 @@ ru:
       test: "Тест"
       question: "Вопрос"
       answer: "Ответ"
+      badge: "Значок"
 
     attributes:
       test:
@@ -17,6 +18,13 @@ ru:
       answer:
         body: "Текст ответа"
         correct: "Правильный"
+
+      badge:
+        name: "Название"
+        image_name: "Изображение"
+        rule: "Правило"
+        parameter: "Параметр"
+
 
     errors:
       messages:

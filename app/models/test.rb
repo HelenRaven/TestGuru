@@ -16,7 +16,7 @@ class Test < ApplicationRecord
 
   scope :with_category, -> (category) { joins(:category)
                                         .where("categories.title = ?", category)}
-
+  scope :with_title, -> (title) { where(title: title)}
   scope :with_level, -> (level) { where(level: level)}
 
   scope :not_empty, -> () { joins(:questions) }

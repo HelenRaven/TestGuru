@@ -4,9 +4,10 @@
 
     <% if user_signed_in?&&current_user.admin? %>
       <%= link_to 'AdminPanel', admin_tests_path, class: 'navbar-text' %> |
-      <%= link_to 'UserGists', admin_gists_path, class: 'navbar-text' %>
+      <%= link_to 'UserGists', admin_gists_path, class: 'navbar-text' %> |
+      <%= link_to 'Badges', admin_badges_path, class: 'navbar-text' %>
     <% end %>
-
+    | <%= link_to 'MyAchievements', achievements_path, class: 'navbar-text' %>
     | <%= link_to 'ContactUs', new_feedback_path, class: 'navbar-text' %>
 
   </div>

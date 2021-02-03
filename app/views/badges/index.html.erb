@@ -1,0 +1,19 @@
+<h1><%= t('.header') %></h1>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"><%= Badge.human_attribute_name(:name) %></th>
+      <th scope="col"><%= Badge.human_attribute_name(:image_name)%></th>
+      <th scope="col"><%= Badge.human_attribute_name(:rule)%></th>
+      <th scope="col"><%= Badge.human_attribute_name(:parameter)%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @badges %>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to t('.back'), achievements_path %>
+</p>
