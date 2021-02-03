@@ -66,6 +66,14 @@ ru:
       other: "Другое"
       send: "Отправить"
       message: "Сообщение"
+  badges:
+    index:
+      back: "Назад"
+      header: "Все доступные значки"
+  achievements:
+    index:
+      header: "Мои достижения"
+      view_all_badges: "Посмотреть все доступные значки"
 
 
   admin:

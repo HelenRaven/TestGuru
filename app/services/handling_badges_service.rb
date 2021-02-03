@@ -24,7 +24,7 @@ class HandlingBadgesService
 
   def for_first_time(param:, badge:)
     results = @user.results.test_with_title(param)
-    if results.count == 1
+    if results.count == 1 && results.first.badges.empty?
       @user.badges.push(badge)
       results.last.badges.push(badge)
     end

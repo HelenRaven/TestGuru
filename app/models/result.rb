@@ -10,10 +10,10 @@ class Result < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question, unless: :completed?
 
-  scope :passed,          ->              { where(passed: true)}
-  scope :with_badges,     ->              { joins(:badges)}
-  scope :except_ids,      -> (ids_ary)    { where.not(id: ids_ary)}
-  scope :tests_results,   -> (tests_ids)  { where(test_id: tests_ids)}
+  scope :passed,          ->              { where(passed: true)       }
+  scope :with_badges,     ->              { joins(:badges)            }
+  scope :except_ids,      -> (ids_ary)    { where.not(id: ids_ary)    }
+  scope :tests_results,   -> (tests_ids)  { where(test_id: tests_ids) }
   scope :test_with_title, -> (test_title) { joins(:test).where("tests.title = ?", test_title)}
 
   def accept!(answer_ids)
